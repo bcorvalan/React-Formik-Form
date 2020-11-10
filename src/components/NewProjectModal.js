@@ -13,10 +13,10 @@ const onSubmit = (values) => {
 const validate = (values) => {
   let errors = {};
   if (!values.brand) {
-    errors.brand = "Required";
+    errors.brand = "This field is required";
   }
   if (!values.projectName) {
-    errors.projectName = "Required";
+    errors.projectName = "This field is required";
   }
   return errors;
 };
@@ -51,10 +51,10 @@ function NewProjectModal() {
                     onChange={formik.handleChange}
                     value={formik.values.brand}
                   />
-                 {/* {formik.errors.brand ? (
-                    <div>{formik.errors.brand}</div>
-                  ) : null}*/}
                 </div>
+                {formik.errors.brand ? (
+                    <div className='create-project-modal__error-message'>{formik.errors.brand}</div>
+                  ) : null}
                 <div className="create-project-modal__project-name">
                   <label
                     className="create-project-modal__project-name__label"
@@ -70,10 +70,10 @@ function NewProjectModal() {
                     onChange={formik.handleChange}
                     value={formik.values.projectName}
                   />
-                  {/*{formik.errors.projectName ? (
-                   <div>{formik.errors.projectName}</div>
-                  ) : null}}*/}
                 </div>
+                {formik.errors.projectName ? (
+                   <div className='create-project-modal__error-message'>{formik.errors.projectName}</div>
+                  ) : null}
                 <div className="create-project-modal__project-date">
                   <div className="create-project-modal__start-date">
                     <label
